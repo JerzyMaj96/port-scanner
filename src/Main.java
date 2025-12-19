@@ -1,5 +1,3 @@
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -9,26 +7,25 @@ public class Main {
 
 
     public static void main(String[] args) {
-
-
-        System.out.println("Podaj port");
+        System.out.println("Podaj adres IP:");
         Scanner scanner = new Scanner(System.in);
-        String ipAddress = scanner.nextLine();
+        PortScanner portScanner = new PortScanner();
 
-        //funkcja, która sprawdza, czy adress ip jest poprawny - jak tak, nic nie robi, jak nie, przerywa program i wypisuje błąd
+        String ipAddress = "";
 
-        Map<String, String> result = new HashMap<>();
 
-        //todo potem przerobić to na wiele wątków
-        for (int i = 1; i <= 1024; i++) {
-            //nawiąż połączenie
-            //jak się udało, to nic nie rób i zamknij połączenie
-            //jak się nie udało, to dodaj do mapy:
-            result.get(i, powód nie udania się);
+        while (ipAddress.toLowerCase().trim().equals("exit") ) {
+            ipAddress = scanner.nextLine();
+            ipAddress = ipAddress.trim();
+
+            if (PortValidator.isValid(ipAddress)) {
+                System.out.println(portScanner.scan(ipAddress).toString());
+                ipAddress = "";
+            } else {
+                System.out.println("Niepoprawny adres ip: " + ipAddress);
+            }
+            System.out.println("Podaj adres IP:");
         }
 
-
-        System.out.println("Wynik:");
-        System.out.println(result.toString());
     }
 }
