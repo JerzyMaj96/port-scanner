@@ -13,7 +13,6 @@ public class PortScanner {
         for (int i = 1; i <= 1024; i++) {
 
             //nawiąż połączenie
-
             //jak się uda, to zamknij
 
             //jak nie, to to:
