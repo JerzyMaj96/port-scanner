@@ -25,11 +25,8 @@ public class PortScanner {
             executor.submit(() ->
                     {
                         try (Socket socket = new Socket()) {
-
                             socket.connect(new InetSocketAddress(ipAddress, port), TIMEOUT);
-
                         } catch (Exception ex) {
-
                             result.put(port, ex.getMessage());
                         }
                     }
