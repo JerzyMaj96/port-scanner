@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 public class PortScanner {
 
-    private static final int TIMEOUT = 1000;
+    private static final int TIMEOUT = 500;
 
     public Map<Integer, String> scan(String ipAddress) {
 
@@ -24,6 +24,7 @@ public class PortScanner {
                     {
                         try (Socket socket = new Socket()) {
                             socket.connect(new InetSocketAddress(ipAddress, port), TIMEOUT);
+                            result.put(port, "OPEN");
                         } catch (Exception ex) {
                             result.put(port, ex.getMessage());
                         }
