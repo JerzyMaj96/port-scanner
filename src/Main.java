@@ -1,3 +1,4 @@
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -17,11 +18,11 @@ public class Main {
             }
 
             if (PortValidator.isValid(ipAddress)) {
-                System.out.println(portScanner.scan(ipAddress).toString());
+                Map<Integer, String> result = portScanner.scan(ipAddress);
+                result.forEach((port, message) -> System.out.println(port + ": " + message));
             } else {
                 System.out.println("Niepoprawny adres ip: " + ipAddress);
             }
         }
-
     }
 }
