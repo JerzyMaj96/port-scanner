@@ -1,5 +1,3 @@
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -11,20 +9,11 @@ public class Main {
         String ipAddress = "";
 
         while (true) {
-            System.out.println("Podaj adres IP (lub wpis '1' dla tego komputera, 'exit' żeby wyjść):");
+            System.out.println("Podaj adres IP (lub 'exit' żeby wyjść):");
             ipAddress = scanner.nextLine().trim();
 
             if (ipAddress.equalsIgnoreCase("exit")) {
                 break;
-            }
-
-            if (ipAddress.equals("1")) {
-                try {
-                    ipAddress = InetAddress.getLocalHost().getHostAddress();
-                } catch (UnknownHostException ex) {
-                    System.out.println(ex.getMessage());
-                    continue;
-                }
             }
 
             if (PortValidator.isValid(ipAddress)) {

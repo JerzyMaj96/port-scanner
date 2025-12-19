@@ -9,9 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 public class PortScanner {
 
-//todo potem przerobić to na wiele wątków
-
-    private static final int TIMEOUT = 200;
+    private static final int TIMEOUT = 1000;
 
     public Map<Integer, String> scan(String ipAddress) {
 
